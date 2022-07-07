@@ -1,0 +1,212 @@
+.heading{  
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 90px;
+}
+
+// header
+header{
+   width: Min(90%, 1200px);
+   margin-inline: auto;
+   @include flexbox;
+   .heading__img{
+        width: 121px;
+        height: 33px;
+        cursor: pointer;
+   }
+   .heading__nav{
+        padding: 10px 0;
+        width: 100%;
+        @include flexbox(space-between);
+       
+        ul{
+            display: flex;
+            &:nth-child(1){
+                padding-left: 20px;
+            }
+            li{
+                color: $GrayishViolet;
+                font-weight: $fontBold;
+                margin-inline: 10px;
+                cursor: pointer;
+                @include flexbox;
+                
+                &:hover{
+                    color: $VeryDarkViolet;
+                }
+            }
+            
+            .heading__nav__sign{
+                @include button;
+                
+                &:hover{
+                    background-color: rgb(140, 249, 249);
+                    border-color:  rgb(140, 249, 249);
+                    color: white;
+                }
+
+            }
+            .heading__nav__border{
+                display: none;
+            }
+            
+        }
+   }
+   .burger{
+    display: none;
+   }
+}
+
+// section heading__section
+
+.heading__section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+
+    .justicier{
+        width: Min(80%, 588px);
+        margin-left: 5%;
+    }
+
+    &__shorter{
+
+        width: Min(80%, 400px);
+        height: 100%;
+
+        h1{
+            font-size: 3rem;
+            font-weight: $fontBold;
+            color: $VeryDarkViolet;
+        }
+        p{
+            color: $GrayishViolet;
+            font-weight: $fontMedium;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        .button{
+            @include button;
+            padding: 10px 25px;
+            
+            &:hover{
+                background-color: rgb(140, 249, 249);
+                border-color:  rgb(140, 249, 249);
+            }
+        }
+    }
+
+    &__image{
+        position: relative;
+        padding-left: 30px;
+        width: 700px;
+        height: 482px;
+        overflow: hidden;
+        img{
+            position: absolute;
+            left: 60px;
+            z-index: 0;
+        }
+    }
+
+}
+
+// media query
+
+@media screen and (max-width: 850px) {
+    .heading__section{
+        flex-direction: column-reverse;
+        &__image{
+            width: 100%;
+            img{
+                left: 0;
+                right: 0;
+            }
+        }
+        .justicier{
+            @include flexbox;
+            width: 100%;
+            margin-left: 0;
+        }
+        &__shorter{
+            width: 95%;
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 620px) {
+    header{
+       
+        position: relative;
+        justify-content: flex-start;
+    
+        .heading__nav{
+            width: 90%;
+            background-color: $bgcolor;
+            border-radius: 15px;
+            @include flexbox;
+            padding: 30px 0;
+            flex-direction: column;
+            position: absolute;
+            top: -400%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            z-index: 1;
+
+            &__none{
+                display: none;
+            }
+            &__show{
+                display: block;
+            }
+
+            ul{
+                font-size: 1.1rem;
+                &:nth-child(1){
+                    width: 100%;
+                    flex-direction: column;
+            
+                    padding-left: unset;
+                    .heading__nav__border{
+                        display: block;
+                        width: 90%;
+                        height: 1px;
+                        background-color: $GrayishViolet;
+                    }
+                }
+                &:nth-child(2){
+                    flex-direction: column;
+                    width: 100%;
+                }
+                li{
+                    color: white;
+                    font-weight: $fontBold;
+                    margin: 20px;
+                }
+                .heading__nav__sign{
+                    width: 90%;
+                    padding: 10px 20px;
+                }
+            }
+
+        }
+        .burger{
+            height: 100%;
+    
+            width: 33px;
+            display: block;
+            position: absolute;
+            right: 0;
+            @include flexbox;
+            &__icon{
+                font-size: 34px;
+                color: $GrayishViolet;
+            }
+            
+        }
+    }
+}

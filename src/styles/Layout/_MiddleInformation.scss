@@ -1,0 +1,188 @@
+.middleInfo{
+    background-color: #EFF1F7;
+    @include flexbox;
+    flex-direction: column;
+    padding-bottom: 100px;
+
+    //shorter links container
+    &__shorter{
+        width: Min(90%, 1200px);
+        margin-inline: auto;
+        margin-top: 50px;
+        margin-bottom: 140px;
+        &__container{
+            width: 100%;
+            padding: 20px 10px;
+            margin: 20px 0;
+            background-color: white;
+            border-radius: 10px;
+            @include flexbox (space-between);
+            p{
+                color: $VeryDarkViolet;
+            }
+            &__shortLink{
+                width: 270px;
+                @include flexbox (space-between);
+                p{
+                    color: rgb(0, 204, 255);
+                    width: 300px;
+                    max-width: 100%;
+                    
+                }
+                button{
+                    @include button ($radius: 5px);
+                    padding: 5px 20px;
+                    &:hover{
+                        background-color: rgb(140, 249, 249);
+                        border-color:  rgb(140, 249, 249);
+                    }
+                    
+                }
+                .button--copied{
+                    background-color: $bgcolor;
+                    border-color: $bgcolor;
+                    &:hover{
+                        background-color: $bgcolor;
+                        border-color: $bgcolor;
+                    }
+                }
+            }
+        }
+    }
+
+    // information statistics
+    &__information{
+        width: Min(90%, 460px);
+        max-width: 100%;
+        margin-bottom: 20px;
+        
+        h2{
+            color: $VeryDarkViolet;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+            margin-top: 10px;
+            color: $GrayishViolet;
+        }
+    }
+    // cart
+    &__cart{
+        width: Min(90%, 1200px);
+        margin-inline: auto;
+        margin-top: 90px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+
+        &__information{
+            width: 310px;
+            height: 258.5px;
+            padding: 70px 20px 20px 20px;
+            border-radius: 3px;
+            background-color: white;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+
+            &--icon{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: $bgcolor;
+                @include flexbox;
+                position: absolute;
+                top: -15%;
+            }
+
+            &:nth-child(2){
+                margin-top: 40px;
+            }
+
+            &:nth-child(3){
+                margin-top: 80px;
+            }
+
+            h4{
+                color: $VeryDarkViolet;
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+            p{
+                color: $GrayishViolet;
+                font-size: 0.9rem;
+            
+            }
+        }
+
+        &__border{
+            width: 100%;
+            height: 8px;
+            background-color: rgb(0, 204, 255);
+            position: absolute;
+            top: 40%;
+
+        }
+    }
+}
+
+// media query
+
+@media screen and (max-width: 850px) {
+    
+    .middleInfo{
+        &__shorter{
+            margin: 70px 0;
+            &__container{
+                flex-direction: column;
+                align-items: unset;
+                margin: 25px 0;
+                padding: 15px 10px;
+                &__shortLink{
+                    flex-direction: column;
+                    align-items: unset;
+                    width: 100%;
+                    margin-top: 15px;
+                    border-top: 1px solid $GrayishViolet;
+                    p{
+                        width: 100%;
+                        margin: 5px 0;
+                        padding: 5px 0;
+                    }
+                    button{
+                        padding: 8px 20px;
+                    }
+                }
+            }
+        }
+        &__cart{
+            flex-direction: column;
+            @include flexbox;
+
+            &__information{
+                
+
+                &--icon{
+                    left: 50%;
+                    transform: translate(-50%, 50%);
+                    top: -34%;
+                }
+
+                &:nth-child(2){
+                    margin-top: unset;
+                    margin: 100px 0;
+                }
+    
+                &:nth-child(3){
+                    margin-top: unset;
+                }
+            }
+
+            &__border{
+                width: 10px;
+                height: 100%;
+                top: 0;
+            }
+        }
+    }
+}
